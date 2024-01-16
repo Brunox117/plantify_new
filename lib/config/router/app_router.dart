@@ -21,6 +21,14 @@ final appRouter = GoRouter(
           ]),
           StatefulShellBranch(routes: [
             GoRoute(
+              path: '/create-plant',
+              builder: (context, state) {
+                return const CreatePlantView();
+              },
+            )
+          ]),
+          StatefulShellBranch(routes: [
+            GoRoute(
               path: '/configuration',
               builder: (context, state) {
                 return const ConfigView();
