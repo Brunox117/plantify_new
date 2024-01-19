@@ -14,7 +14,8 @@ class CustomBottomNavBar extends StatelessWidget {
         onTap: (value) => currentChild.goBranch(value),
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Inicio'),
-          BottomNavigationBarItem(icon: Icon(Icons.grass_sharp), label: 'Agregar planta'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.grass_sharp), label: 'Crear planta'),
           BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Ajustes'),
         ]);
   }
