@@ -48,10 +48,10 @@ class CreatePlantNotifier extends StateNotifier<CreatePlantState> {
       waterHour: state.waterHour.value,
       description: state.description,
     );
-    print('Planta creada :D!!!');
-    print(plant.plantName);
-    print(plant.waterHour);
-    print(plant.description);
+    //print('Planta creada :D!!!');
+    // print(plant.plantName);
+    // print(plant.waterHour);
+    // print(plant.description);
     return true;
   }
 }
