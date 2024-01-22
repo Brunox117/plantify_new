@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:formz/formz.dart';
 import 'package:plantify/domain/entities/plant.dart';
@@ -19,7 +18,7 @@ class CreatePlantNotifier extends StateNotifier<CreatePlantState> {
     );
   }
 
-  void onWaterHourChanged(TimeOfDay value) {
+  void onWaterHourChanged(String value) {
     state = state.copyWith(
       waterHour: WaterHour.dirty(value),
     );
@@ -49,6 +48,7 @@ class CreatePlantNotifier extends StateNotifier<CreatePlantState> {
       waterHour: state.waterHour.value,
       description: state.description,
     );
+    print('Planta creada :D!!!');
     print(plant.plantName);
     print(plant.waterHour);
     print(plant.description);

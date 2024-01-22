@@ -1,8 +1,12 @@
-import 'package:flutter/material.dart';
+import 'package:isar/isar.dart';
 
+part 'plant.g.dart';
+
+@collection
 class Plant {
+  Id id = Isar.autoIncrement;
   String plantName;
-  TimeOfDay waterHour;
+  String waterHour;
   String? description;
   Plant({
     required this.plantName,

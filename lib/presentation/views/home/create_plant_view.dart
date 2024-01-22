@@ -63,17 +63,18 @@ class _PlantForm extends ConsumerWidget {
                   helpText: 'Selecciona una hora',
                   cancelText: 'Cancelar',
                 );
+                final selectedHourString =
+                    '${selectedHour!.hour.toString()}:${selectedHour.hour.toString()}';
                 ref
                     .read(createPlantProvider.notifier)
-                    .onWaterHourChanged(selectedHour!);
+                    .onWaterHourChanged(selectedHourString);
               },
               child: const Text('Seleccionar hora de riego'),
             ),
             const SizedBox(
               height: 10,
             ),
-            Text(
-                'La hora seleccionada es: ${plantForm.waterHour.value.format(context)}'),
+            Text('La hora seleccionada es: ${plantForm.waterHour.value}'),
             const SizedBox(
               height: 30,
             ),
@@ -91,8 +92,12 @@ class _PlantForm extends ConsumerWidget {
             ),
             Center(
               child: IconButton(
-                  onPressed: () {
-                    ref.read(createPlantProvider.notifier).onSubmit();
+                  onPressed: () async {
+                    Future<bool> submited = ref.read(createPlantProvider.notifier).onSubmit();
+                    if (await submited) {
+                      //todo limpiar formulario
+                    }
+                    
                   },
                   icon: Icon(
                     Icons.add_circle_outline_rounded,

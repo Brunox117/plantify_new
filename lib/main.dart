@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:plantify/config/config.dart';
 import 'package:plantify/presentation/providers/providers.dart';
 
-
 void main() {
   runApp(const ProviderScope(child: MainApp()));
 }
