@@ -10,10 +10,7 @@ class HomeView extends StatelessWidget {
       appBar: CustomAppbar(
         title: 'Inicio',
       ),
-      body: Center(
-        child: Text('HomeView'),
-      ),
-    )
-    ;
+      body: Center(child: PlantMenu()),
+    );
   }
 }
