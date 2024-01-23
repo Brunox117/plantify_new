@@ -39,10 +39,10 @@ class CreatePlantNotifier extends StateNotifier<CreatePlantState> {
     );
   }
 
-  Future<bool> onSubmit() async {
+  Future<Plant> onSubmit() async {
     _touchAllFields();
     await Future.delayed(const Duration(seconds: 1));
-    if (!state.isFormValid) return false;
+    if (!state.isFormValid) throw 'Hubo un error';
     final Plant plant = Plant(
       plantName: state.plantName.value,
       waterHour: state.waterHour.value,
@@ -52,7 +52,7 @@ class CreatePlantNotifier extends StateNotifier<CreatePlantState> {
     // print(plant.plantName);
     // print(plant.waterHour);
     // print(plant.description);
-    return true;
+    return plant;
   }
 }
 

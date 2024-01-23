@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:plantify/domain/entities/plant.dart';
 import 'package:plantify/presentation/providers/providers.dart';
 import 'package:plantify/presentation/widgets/widgets.dart';
 
@@ -93,11 +94,11 @@ class _PlantForm extends ConsumerWidget {
             Center(
               child: IconButton(
                   onPressed: () async {
-                    Future<bool> submited = ref.read(createPlantProvider.notifier).onSubmit();
-                    if (await submited) {
-                      //todo limpiar formulario
-                    }
-                    
+                    Future<Plant> plant =
+                        ref.read(createPlantProvider.notifier).onSubmit();
+                    plant.then((value) => ref
+                        .read(localStorageRespositoryProvider)
+                        .savePlant(value));
                   },
                   icon: Icon(
                     Icons.add_circle_outline_rounded,
