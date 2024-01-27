@@ -64,8 +64,13 @@ class _PlantForm extends ConsumerWidget {
                   helpText: 'Selecciona una hora',
                   cancelText: 'Cancelar',
                 );
-                final selectedHourString =
-                    '${selectedHour!.hour.toString()}:${selectedHour.hour.toString()}';
+                String selectedHourString = '${TimeOfDay.now().hour.toString()}:${TimeOfDay.now().minute.toString()}';
+                if(selectedHour != null){
+
+                selectedHourString =
+                    '${selectedHour.hour.toString()}:${selectedHour.minute.toString()}';
+                }
+
                 ref
                     .read(createPlantProvider.notifier)
                     .onWaterHourChanged(selectedHourString);
@@ -94,11 +99,9 @@ class _PlantForm extends ConsumerWidget {
             Center(
               child: IconButton(
                   onPressed: () async {
-                    Future<Plant> plant =
-                        ref.read(createPlantProvider.notifier).onSubmit();
-                    plant.then((value) => ref
-                        .read(localStorageRespositoryProvider)
-                        .savePlant(value));
+                    Plant plant =
+                        await ref.read(createPlantProvider.notifier).onSubmit();
+                    await ref.read(plantsProvider.notifier).addPlant(plant);
                   },
                   icon: Icon(
                     Icons.add_circle_outline_rounded,
