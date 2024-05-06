@@ -30,7 +30,7 @@ class PlantMenu extends StatelessWidget {
                 ),
                 child: IconButton(
                   onPressed: () {
-                    print('regada!');
+                    print('falta implementar el riego!');
                   },
                   icon: const Icon(Icons.water_drop_outlined),
                   iconSize: 30,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:plantify/domain/entities/plant.dart';
 import 'package:plantify/presentation/providers/providers.dart';
 import 'package:plantify/presentation/widgets/widgets.dart';
@@ -99,9 +100,12 @@ class _PlantForm extends ConsumerWidget {
             Center(
               child: IconButton(
                   onPressed: () async {
+                    ref.read(createPlantProvider.notifier).touchAllFields();
+                    if(!plantForm.isFormValid) return;
                     Plant plant =
                         await ref.read(createPlantProvider.notifier).onSubmit();
                     await ref.read(plantsProvider.notifier).addPlant(plant);
+                    ref.read(createPlantProvider.notifier).resetForm();
                   },
                   icon: Icon(
                     Icons.add_circle_outline_rounded,

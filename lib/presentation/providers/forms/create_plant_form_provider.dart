@@ -18,6 +18,13 @@ class CreatePlantNotifier extends StateNotifier<CreatePlantState> {
     );
   }
 
+  void resetForm() {
+    state = state.copyWith(
+      plantName: const PlantName.pure(),
+      waterHour: const WaterHour.pure(),
+      description: '',
+    );
+  }
   void onWaterHourChanged(String value) {
     state = state.copyWith(
       waterHour: WaterHour.dirty(value),
@@ -30,7 +37,7 @@ class CreatePlantNotifier extends StateNotifier<CreatePlantState> {
     );
   }
 
-  void _touchAllFields() {
+  void touchAllFields() {
     state = state.copyWith(
       isFormValid: Formz.validate([
         PlantName.dirty(state.plantName.value),
@@ -40,8 +47,7 @@ class CreatePlantNotifier extends StateNotifier<CreatePlantState> {
   }
 
   Future<Plant> onSubmit() async {
-    _touchAllFields();
-    await Future.delayed(const Duration(seconds: 1));
+    touchAllFields();
     if (!state.isFormValid) throw 'Hubo un error';
     final Plant plant = Plant(
       plantName: state.plantName.value,

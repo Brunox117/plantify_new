@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:plantify/presentation/providers/providers.dart';
 
 import 'package:plantify/presentation/widgets/widgets.dart';
@@ -41,7 +42,27 @@ class HomeViewState extends ConsumerState<HomeView> {
           title: 'Mis Plantas',
         ),
         body: (plantsList.isEmpty)
-            ? const CircularProgressIndicator()
+            ? Center(
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        'Parece que no tienes plantas, agrega una!',
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: 20),
+                      IconButton(
+                        icon: const Icon(
+                          Icons.add_circle_outline_rounded,
+                          size: 35,
+                          color: Colors.green,
+                        ),
+                        onPressed: () {
+                          context.push('/create-plant');
+                        },
+                      ),
+                    ]),
+              )
             : PlantsMasonry(
                 plants: plantsList,
                 loadNextPage: loadNextPage,
