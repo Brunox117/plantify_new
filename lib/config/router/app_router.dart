@@ -17,6 +17,15 @@ final appRouter = GoRouter(
               builder: (context, state) {
                 return const HomeView();
               },
+              routes: [
+                GoRoute(
+                  path: 'plant',
+                  builder: (context, state) {
+                    // final id = state.pathParameters['id']!;
+                    return PlantView();
+                  },
+                ),
+              ],
             )
           ]),
           StatefulShellBranch(routes: [

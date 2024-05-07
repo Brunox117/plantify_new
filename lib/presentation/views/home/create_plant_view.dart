@@ -25,7 +25,6 @@ class _PlantForm extends ConsumerStatefulWidget {
 }
 
 class _PlantFormState extends ConsumerState<_PlantForm> {
-
   void _submitPlant(Plant plant) async {
     ref.read(plantsProvider.notifier).addPlant(plant);
   }
@@ -38,7 +37,6 @@ class _PlantFormState extends ConsumerState<_PlantForm> {
 
   @override
   Widget build(BuildContext context) {
-
     final colors = Theme.of(context).colorScheme;
     final textStyles = Theme.of(context).textTheme;
 
@@ -55,6 +53,7 @@ class _PlantFormState extends ConsumerState<_PlantForm> {
             ),
             const SizedBox(height: 10),
             CustomFormField(
+              hintStyle: const TextStyle(color: Colors.black54),
               isTopField: true,
               hint: 'Nombre de la planta',
               onChanged: (value) => plantName = value,
@@ -87,6 +86,7 @@ class _PlantFormState extends ConsumerState<_PlantForm> {
             Text('La hora seleccionada es: $waterHour'),
             const SizedBox(height: 30),
             CustomFormField(
+              hintStyle: const TextStyle(color: Colors.black54),
               hint: 'Información adicional',
               isBottomField: true,
               maxLines: 7,
