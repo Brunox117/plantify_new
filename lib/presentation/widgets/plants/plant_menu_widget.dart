@@ -30,7 +30,7 @@ class PlantMenu extends StatelessWidget {
                 ),
                 child: IconButton(
                   onPressed: () {
-                    print('falta implementar el riego!');
+                    //TODO: Implementar la funcionalidad de regar la planta
                   },
                   icon: const Icon(Icons.water_drop_outlined),
                   iconSize: 30,
@@ -54,7 +54,7 @@ class PlantMenu extends StatelessWidget {
                     plant.plantName,
                     style: const TextStyle(
                         color: Colors.white,
-                        fontSize: 15,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold),
                   ),
                   Text(
@@ -67,40 +67,9 @@ class PlantMenu extends StatelessWidget {
                 ],
               ),
             ),
-            // Positioned(
-            //   bottom: 15,
-            //   right: 20,
-            //   child: Container(
-            //     padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
-            //     decoration: BoxDecoration(
-            //       color: Colors.white,
-            //       borderRadius: BorderRadius.circular(20),
-            //     ),
-            //     child: Text(''),
-            //   ),
-            // ),
           ],
         ),
       ),
     );
-    // return Positioned(
-    //   top: 10,
-    //   right: 20,
-    //   child: Container(
-    //     height: 50,
-    //     width: 50,
-    //     child: IconButton(
-    //       onPressed: () {},
-    //       icon: Icon(Icons.water_drop_outlined),
-    //       iconSize: 30,
-    //     ),
-    //     decoration: BoxDecoration(
-    //       color: Colors.white,
-    //       borderRadius: BorderRadius.circular(50),
-    //     ),
-
-    //   ),
-    // )
-    // ;
   }
 }
