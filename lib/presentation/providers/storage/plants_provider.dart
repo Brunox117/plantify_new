@@ -32,4 +32,11 @@ class StoragePlantsNotifier extends StateNotifier<Map<int, Plant>> {
     await localStorageRepository.savePlant(plant);
     state = { ...state, plant.id: plant};
   }
+
+  Future<Plant> getPlant (int id) async {
+    Plant plant = await localStorageRepository.getPlant(id);
+    return plant;
+  }
+
+  
 }
