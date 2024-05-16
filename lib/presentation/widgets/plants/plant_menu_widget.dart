@@ -12,7 +12,7 @@ class PlantMenu extends StatelessWidget {
     return FadeInUp(
       child: GestureDetector(
         onTap: () {
-          context.push('/plant');
+          context.push('/plant/${plant.id}');
         },
         child: Container(
           width: 200,

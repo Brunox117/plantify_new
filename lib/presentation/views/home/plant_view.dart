@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
 class PlantView extends StatelessWidget {
-  const PlantView({super.key});
+  final String id;
+  const PlantView({super.key, required this.id});
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Plant View'),
+
+    return Center(
+      child: Text('Plant View $id'),
     );
   }
 }

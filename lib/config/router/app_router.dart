@@ -19,10 +19,10 @@ final appRouter = GoRouter(
               },
               routes: [
                 GoRoute(
-                  path: 'plant',
+                  path: 'plant/:id',
                   builder: (context, state) {
-                    // final id = state.pathParameters['id']!;
-                    return PlantView();
+                    final id = state.pathParameters['id']!;
+                    return PlantView(id: id,);
                   },
                 ),
               ],
