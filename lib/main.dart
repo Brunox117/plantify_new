@@ -9,7 +9,7 @@ void main() {
 
 class MainApp extends ConsumerWidget {
   const MainApp({super.key});
-  //comentario
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final AppTheme appTheme = ref.watch(themeNotifierProvider);
