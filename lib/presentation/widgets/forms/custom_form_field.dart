@@ -49,7 +49,7 @@ class CustomFormField extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.only(bottom: 8),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: const Color.fromARGB(255, 202, 216, 200),
         borderRadius: BorderRadius.only(
           topLeft: isTopField ? borderRadius : Radius.zero, 
           topRight: isTopField ? borderRadius : Radius.zero, 

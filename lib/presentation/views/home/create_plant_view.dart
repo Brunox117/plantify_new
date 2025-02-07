@@ -29,6 +29,14 @@ class _PlantFormState extends ConsumerState<_PlantForm> {
     ref.read(plantsProvider.notifier).addPlant(plant);
   }
 
+  @override
+  void initState() {
+    super.initState();
+
+    final now = TimeOfDay.now();
+    waterHour = '${now.hour}:${now.minute}';
+  }
+
   final _formKey = GlobalKey<FormState>();
 
   String plantName = '';
